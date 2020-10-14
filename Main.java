@@ -1,124 +1,176 @@
 package sk.kosickaakademia.nebus.prevody;
 
 import java.util.Scanner;
-
+///main
 public class Main {
     public static void main(String[] args) {
 
-            Scanner sc = new Scanner(System.in);
-            int volba, cislo;
-            String retazec;
+        Scanner sc = new Scanner(System.in);
+        int volba, cislo;
+        String retazec;
 
-    do{
-                System.out.println("-----PREVOD SUSTAV-----");
-                System.out.println("Zadaj co chces urobit (stlac 1, 2 alebo 3)");
-                System.out.println("1: Prevod do dvojkovej");
-                System.out.println("2: Prevod do osmickovej");
-                System.out.println("3: Prevod do sesnastkovej");
-                System.out.println("4: Prevod z dvojkovej do desiatkovej");
-                System.out.println("5: Prevod z osmickovej do desiatkovej");
-                System.out.println("6: Prevod zo sesnastkovej do desiatkovej");
-                System.out.println(("7: Nekonecny cyklus na vypocet suctu"));
-                volba = sc.nextInt();
-            }while(volba<1 || volba>7);
+        do {
+            System.out.println("-----PREVOD SUSTAV-----");
+            System.out.println("Zadaj co chces urobit (stlac 1, 2 - 12)");
+            System.out.println("1: Prevod do dvojkovej");
+            System.out.println("2: Prevod do osmickovej");
+            System.out.println("3: Prevod do sesnastkovej");
+            System.out.println("4: Prevod z dvojkovej do desiatkovej");
+            System.out.println("5: Prevod z osmickovej do desiatkovej");
+            System.out.println("6: Prevod zo sesnastkovej do desiatkovej");
+            System.out.println(("7: Nekonecny cyklus na vypocet suctu"));
+            System.out.println(("8: Napisem retazec od zadu"));
+            System.out.println(("9: Zisti pocet samohlasok"));
+            System.out.println(("10: Zisti ci to je hexa cislo"));
+            System.out.println(("11: Zisti ci to je binarne cislo"));
+            System.out.println(("12: Zisti ci to je octa cislo"));
+            volba = sc.nextInt();
+        } while (volba < 1 || volba > 12);
 
-    switch (volba){
-        case (1):
-            System.out.println("Zadaj cislo ktore chces previest: ");
-            cislo = sc.nextInt();
-            convertToBinary(cislo);
-            break;
-        case (2):
-            System.out.println("Zadaj cislo ktore chces previest: ");
-            cislo = sc.nextInt();
-            convertToOcta(cislo);
-            break;
-        case (3):
-            System.out.println("Zadaj cislo ktore chces previest: ");
-            cislo = sc.nextInt();
-            convertToHexa(cislo);
-            break;
-        case (4):
-            System.out.println("Zadaj cislo ktore chces previest: ");
-            cislo = sc.nextInt();
-            convertFromBinToDec(cislo);
-            break;
-        case (5):
-            System.out.println("Zadaj cislo ktore chces previest: ");
-            cislo = sc.nextInt();
-            convertFromOctToDec(cislo);
-            break;
-        case (6):
-            System.out.println("Zadaj cislo ktore chces previest: ");
-            Scanner in = new Scanner(System.in);
-            retazec = in.nextLine();
-            convertFromHexToDec(retazec);
-            break;
-        case (7):
-            countInfinity();
-            break;
-    }
+        switch (volba) {
+            case (1):
+                System.out.println("Zadaj cislo ktore chces previest: ");
+                cislo = sc.nextInt();
+                convertToBinary(cislo);
+                break;
+            case (2):
+                System.out.println("Zadaj cislo ktore chces previest: ");
+                cislo = sc.nextInt();
+                convertToOcta(cislo);
+                break;
+            case (3):
+                System.out.println("Zadaj cislo ktore chces previest: ");
+                cislo = sc.nextInt();
+                convertToHexa(cislo);
+                break;
+            case (4):
+                System.out.println("Zadaj cislo ktore chces previest: ");
+                cislo = sc.nextInt();
+                convertFromBinToDec(cislo);
+                break;
+            case (5):
+                System.out.println("Zadaj cislo ktore chces previest: ");
+                cislo = sc.nextInt();
+                convertFromOctToDec(cislo);
+                break;
+            case (6):
+                System.out.println("Zadaj cislo ktore chces previest: ");
+                Scanner in = new Scanner(System.in);
+                retazec = in.nextLine();
+                convertFromHexToDec(retazec);
+                break;
+            case (7):
+                countInfinity();
+                break;
+            case (8):
+                System.out.println("Zadaj retazec a napisem ho odzadu: ");
+                Scanner inS = new Scanner(System.in);
+                retazec = inS.nextLine();
+                vypisemOdZadu(retazec);
+                break;
+            case (9):
+                zistiPocetSamohlasok();
+                break;
+            case(10):
+                System.out.println("Zadaj cislo: ");
+                Scanner inH = new Scanner(System.in);
+                retazec = inH.nextLine();
+                boolean hodnota = isHexadecimalNumber(retazec);
+                if(hodnota == true){
+                    System.out.println("Je to HEXA cislo");
+                }else{
+                    System.out.println("Nie je to HEXA cislo");
+                }
+                break;
+            case(11):
+                System.out.println("Zadaj cislo: ");
+                Scanner inB = new Scanner(System.in);
+                retazec = inB.nextLine();
+                hodnota = isBinaryNumber(retazec);
+                if(hodnota == true){
+                    System.out.println("Je to Binary cislo");
+                }else{
+                    System.out.println("Nie je to Binary cislo");
+                }
+                break;
+            case(12):
+                System.out.println("Zadaj cislo: ");
+                Scanner inO = new Scanner(System.in);
+                retazec = inO.nextLine();
+                hodnota = isOctalNumber(retazec);
+                if(hodnota == true){
+                    System.out.println("Je to Octa cislo");
+                }else{
+                    System.out.println("Nie je to Octa cislo");
+                }
+                break;
         }
+    }
 
-    private static void convertToBinary(int cislo){
+
+
+//funkcie
+    private static void convertToBinary(int cislo) {
         //inicializacia premennych
         int velkostPola = 0;
         int pomocneCislo = cislo;
         //zisti velkost pola
-        while(pomocneCislo != 0){
-            pomocneCislo = pomocneCislo/2;
+        while (pomocneCislo != 0) {
+            pomocneCislo = pomocneCislo / 2;
             velkostPola++;
         }
         int[] pole = new int[velkostPola];
         //ulozenie do pola
-        for(int i = 0; i < velkostPola; i++){
-            pole[i] = cislo%2;
-            cislo = cislo/2;
+        for (int i = 0; i < velkostPola; i++) {
+            pole[i] = cislo % 2;
+            cislo = cislo / 2;
         }
         //vypis pola od zadu
-        for(int j = velkostPola-1; j >= 0; j--){
+        for (int j = velkostPola - 1; j >= 0; j--) {
             System.out.print(pole[j]);
         }
     }
 
-    private static void convertToOcta(int cislo){
+
+    private static void convertToOcta(int cislo) {
         //inicializacia premennych
         int velkostPola = 0;
         int pomocneCislo = cislo;
         //zisti velkost pola
-        while(pomocneCislo != 0){
-            pomocneCislo = pomocneCislo/8;
+        while (pomocneCislo != 0) {
+            pomocneCislo = pomocneCislo / 8;
             velkostPola++;
         }
         int[] pole = new int[velkostPola];
         //ulozenie do pola
-        for(int i = 0; i < velkostPola; i++){
-            pole[i] = cislo%8;
-            cislo = cislo/8;
+        for (int i = 0; i < velkostPola; i++) {
+            pole[i] = cislo % 8;
+            cislo = cislo / 8;
         }
         //vypis pola od zadu
-        for(int j = velkostPola-1; j >= 0; j--){
+        for (int j = velkostPola - 1; j >= 0; j--) {
             System.out.print(pole[j]);
         }
     }
 
-    private static void convertToHexa(int cislo){
+
+    private static void convertToHexa(int cislo) {
         //inicializacia premennych
         int velkostPola = 0;
         int pomocneCislo = cislo;
         //zisti velkost pola
-        while(pomocneCislo != 0){
-            pomocneCislo = pomocneCislo/16;
+        while (pomocneCislo != 0) {
+            pomocneCislo = pomocneCislo / 16;
             velkostPola++;
         }
         int[] pole = new int[velkostPola];
         //ulozenie do pola
-        for(int i = 0; i < velkostPola; i++){
-            pole[i] = cislo%16;
-            cislo = cislo/16;
+        for (int i = 0; i < velkostPola; i++) {
+            pole[i] = cislo % 16;
+            cislo = cislo / 16;
         }
         //vypis pola od zadu
-        for(int j = velkostPola-1; j >= 0; j--){
+        for (int j = velkostPola - 1; j >= 0; j--) {
             //System.out.print(pole[j]);
             /*
             if(pole[j] == 10){
@@ -138,7 +190,7 @@ public class Main {
             }
              */
             //vypis cez switch
-            switch(pole[j]){
+            switch (pole[j]) {
                 case (10):
                     System.out.print("A");
                     break;
@@ -163,115 +215,118 @@ public class Main {
         }
     }
 
-    private static void convertFromBinToDec(int cislo){
+
+    private static void convertFromBinToDec(int cislo) {
         int dlzka = 0;
         int pomocneCislo = cislo;
         int vysledok = 0;
         //zisti velkost pola
-        while(pomocneCislo != 0){
-            pomocneCislo = pomocneCislo/10;
+        while (pomocneCislo != 0) {
+            pomocneCislo = pomocneCislo / 10;
             dlzka++;
         }
         int[] pole = new int[dlzka];
         //ulozi do pola cisla na kazdy index jedno cislo
-        for(int i = 0; i < dlzka; i++){
-            pole[i] = cislo%10;
-            cislo = cislo/10;
+        for (int i = 0; i < dlzka; i++) {
+            pole[i] = cislo % 10;
+            cislo = cislo / 10;
         }
         //od zadu pola robim mocniny
-        for(int i = dlzka-1; i >= 0; i--){
-            vysledok = vysledok + pole[i]*(int)Math.pow(2,i);
+        for (int i = dlzka - 1; i >= 0; i--) {
+            vysledok = vysledok + pole[i] * (int) Math.pow(2, i);
         }
         System.out.println("Hodnota je: " + vysledok);
     }
 
-    private static void convertFromOctToDec(int cislo){
+
+    private static void convertFromOctToDec(int cislo) {
         int dlzka = 0;
         int pomocneCislo = cislo;
         int vysledok = 0;
         //zisti velkost pola
-        while(pomocneCislo != 0){
-            pomocneCislo = pomocneCislo/10;
+        while (pomocneCislo != 0) {
+            pomocneCislo = pomocneCislo / 10;
             dlzka++;
         }
         int[] pole = new int[dlzka];
         //ulozi do pola cisla na kazdy index jedno cislo
-        for(int i = 0; i < dlzka; i++){
-            pole[i] = cislo%10;
-            cislo = cislo/10;
+        for (int i = 0; i < dlzka; i++) {
+            pole[i] = cislo % 10;
+            cislo = cislo / 10;
         }
         //od zadu pola robim mocniny
-        for(int i = dlzka-1; i >= 0; i--){
-            vysledok = vysledok + pole[i]*(int)Math.pow(8,i);
+        for (int i = dlzka - 1; i >= 0; i--) {
+            vysledok = vysledok + pole[i] * (int) Math.pow(8, i);
         }
         System.out.println("Hodnota je: " + vysledok);
     }
 
-    private static void convertFromHexToDec(String retazec){
-    //System.out.println("Testovanie " + retazec);
-    int dlzka = retazec.length();
-    int vysledok = 0;
-    int j = 0;
 
-        for(int i = dlzka-1; i >=0; i--){
-            if(retazec.charAt(i) == '0'){
-                vysledok = vysledok + 0*(int)Math.pow(16,j);
-            }
-            else if(retazec.charAt(i) == '1'){
-                vysledok = vysledok + 1*(int)Math.pow(16,j);
-            }else if(retazec.charAt(i) == '2'){
-                vysledok = vysledok + 2*(int)Math.pow(16,j);
-            }else if(retazec.charAt(i) == '3'){
-                vysledok = vysledok + 3*(int)Math.pow(16,j);
-            }else if(retazec.charAt(i) == '4'){
-                vysledok = vysledok + 4*(int)Math.pow(16,j);
-            }else if(retazec.charAt(i) == '5'){
-                vysledok = vysledok + 5*(int)Math.pow(16,j);
-            }else if(retazec.charAt(i) == '6'){
-                vysledok = vysledok + 6*(int)Math.pow(16,j);
-            }else if(retazec.charAt(i) == '7'){
-                vysledok = vysledok + 7*(int)Math.pow(16,j);
-            }else if(retazec.charAt(i) == '8'){
-                vysledok = vysledok + 8*(int)Math.pow(16,j);
-            }else if(retazec.charAt(i) == '9'){
-                vysledok = vysledok + 9*(int)Math.pow(16,j);
-            }else if(retazec.charAt(i) == 'A'){
-                vysledok = vysledok + 10*(int)Math.pow(16,j);
-            }else if(retazec.charAt(i) == 'B'){
-                vysledok = vysledok + 11*(int)Math.pow(16,j);
-            }else if(retazec.charAt(i) == 'C'){
-                vysledok = vysledok + 12*(int)Math.pow(16,j);
-            }else if(retazec.charAt(i) == 'D'){
-                vysledok = vysledok + 13*(int)Math.pow(16,j);
-            }else if(retazec.charAt(i) == 'E'){
-                vysledok = vysledok + 14*(int)Math.pow(16,j);
-            }else if(retazec.charAt(i) == 'F'){
-                vysledok = vysledok + 15*(int)Math.pow(16,j);
+    private static void convertFromHexToDec(String retazec) {
+        //System.out.println("Testovanie " + retazec);
+        int dlzka = retazec.length();
+        int vysledok = 0;
+        int j = 0;
+
+        for (int i = dlzka - 1; i >= 0; i--) {
+            if (retazec.charAt(i) == '0') {
+                vysledok = vysledok + 0 * (int) Math.pow(16, j);
+            } else if (retazec.charAt(i) == '1') {
+                vysledok = vysledok + 1 * (int) Math.pow(16, j);
+            } else if (retazec.charAt(i) == '2') {
+                vysledok = vysledok + 2 * (int) Math.pow(16, j);
+            } else if (retazec.charAt(i) == '3') {
+                vysledok = vysledok + 3 * (int) Math.pow(16, j);
+            } else if (retazec.charAt(i) == '4') {
+                vysledok = vysledok + 4 * (int) Math.pow(16, j);
+            } else if (retazec.charAt(i) == '5') {
+                vysledok = vysledok + 5 * (int) Math.pow(16, j);
+            } else if (retazec.charAt(i) == '6') {
+                vysledok = vysledok + 6 * (int) Math.pow(16, j);
+            } else if (retazec.charAt(i) == '7') {
+                vysledok = vysledok + 7 * (int) Math.pow(16, j);
+            } else if (retazec.charAt(i) == '8') {
+                vysledok = vysledok + 8 * (int) Math.pow(16, j);
+            } else if (retazec.charAt(i) == '9') {
+                vysledok = vysledok + 9 * (int) Math.pow(16, j);
+            } else if (retazec.charAt(i) == 'A') {
+                vysledok = vysledok + 10 * (int) Math.pow(16, j);
+            } else if (retazec.charAt(i) == 'B') {
+                vysledok = vysledok + 11 * (int) Math.pow(16, j);
+            } else if (retazec.charAt(i) == 'C') {
+                vysledok = vysledok + 12 * (int) Math.pow(16, j);
+            } else if (retazec.charAt(i) == 'D') {
+                vysledok = vysledok + 13 * (int) Math.pow(16, j);
+            } else if (retazec.charAt(i) == 'E') {
+                vysledok = vysledok + 14 * (int) Math.pow(16, j);
+            } else if (retazec.charAt(i) == 'F') {
+                vysledok = vysledok + 15 * (int) Math.pow(16, j);
             }
             j++;
         }
         System.out.println("Hodnota je: " + vysledok);
     }
 
-    private static void countInfinity(){
+
+    private static void countInfinity() {
         Scanner sc = new Scanner(System.in);
         int cislo;
         int sucet = 0;
         int pamataPredchadzajuce = 0;
-        while (true){
+        while (true) {
             System.out.println("Zadaj cislo: ");
             cislo = sc.nextInt();
-            if(cislo != 0 && cislo != pamataPredchadzajuce){
+            if (cislo != 0 && cislo != pamataPredchadzajuce) {
                 sucet = sucet + cislo;
-            }else{
+            } else {
                 break;
             }
             pamataPredchadzajuce = cislo;
             System.out.println("Zadaj cislo: ");
             cislo = sc.nextInt();
-            if(cislo != pamataPredchadzajuce && cislo != 0){
+            if (cislo != pamataPredchadzajuce && cislo != 0) {
                 sucet = sucet + cislo;
-            }else{
+            } else {
                 break;
             }
             pamataPredchadzajuce = cislo;
@@ -280,5 +335,107 @@ public class Main {
         System.out.println("Sucet cisel je: " + sucet);
     }
 
+
+    private static void vypisemOdZadu(String retazec) {
+        int dlzka = retazec.length();
+        String reverz = "";
+        for (int i = dlzka - 1; i >= 0; i--) {
+            reverz = reverz + retazec.charAt(i);
+        }
+        System.out.println("Opacny retazec je: " + reverz);
     }
+
+    private static void zistiPocetSamohlasok() {
+        String data = " Procedural programming is about writing procedures or methods that perform operations on the data, while object-oriented programming is about creating objects that contain both data and methods. ";
+        int dlzka = data.length();
+        char znak;
+        int pocet = 0;
+        for (int i = 0; i < dlzka; i++) {
+            znak = data.charAt(i);
+            if (znak == 'a' || znak == 'A' || znak == 'á' || znak == 'Á') {
+                pocet++;
+            } else if (znak == 'e' || znak == 'E' || znak == 'é' || znak == 'É') {
+                pocet++;
+            } else if (znak == 'i' || znak == 'I' || znak == 'í' || znak == 'Í') {
+                pocet++;
+            } else if (znak == 'o' || znak == 'O' || znak == 'ó' || znak == 'Ó') {
+                pocet++;
+            } else if (znak == 'u' || znak == 'U' || znak == 'ú' || znak == 'Ú') {
+                pocet++;
+            } else if (znak == 'ä' || znak == 'Ä') {
+                pocet++;
+            } else if (znak == 'y' || znak == 'Y' || znak == 'ý' || znak == 'Ý') {
+                pocet++;
+            }
+        }
+            System.out.println("Pocet je: " + pocet);
+    }
+
+    public static boolean isHexadecimalNumber(String value){
+        int dlzka = value.length();
+        value = value.toLowerCase();
+        char znak;
+        int pocitadlo = 0;
+        for(int i = 0; i < dlzka; i++){
+            znak = value.charAt(i);
+            if(znak == '0' || znak == '1' || znak == '2' || znak == '3' || znak == '4' ||
+               znak == '5' || znak == '6' || znak == '7' || znak == '8' || znak == '9' ||
+               znak == 'a' ||znak == 'b' || znak == 'c' || znak == 'd' || znak == 'e' ||
+               znak == 'f'){
+                continue;
+            }else{
+                pocitadlo++;
+            }
+        }
+        if(pocitadlo > 0){
+            return false;
+        }else {
+          return true;
+        }
+    }
+
+    public static boolean isBinaryNumber(String value){
+        int dlzka = value.length();
+        value = value.toLowerCase();
+        char znak;
+        int pocitadlo = 0;
+        for(int i = 0; i < dlzka; i++){
+            znak = value.charAt(i);
+            if(znak == '0' || znak == '1'){
+                continue;
+            }else{
+                pocitadlo++;
+            }
+        }
+        if(pocitadlo > 0){
+            return false;
+        }else {
+            return true;
+        }
+    }
+
+    public static boolean isOctalNumber(String value){
+        int dlzka = value.length();
+        value = value.toLowerCase();
+        char znak;
+        int pocitadlo = 0;
+        for(int i = 0; i < dlzka; i++){
+            znak = value.charAt(i);
+            if(znak == '0' || znak == '1' || znak == '2' || znak == '3' || znak == '4' ||
+                    znak == '5' || znak == '6' || znak == '7'){
+                continue;
+            }else{
+                pocitadlo++;
+            }
+        }
+        if(pocitadlo > 0){
+            return false;
+        }else {
+            return true;
+        }
+    }
+
+
+
+}
 
