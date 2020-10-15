@@ -32,8 +32,11 @@ public class Main {
             System.out.println(("11: Zisti ci to je binarne cislo"));
             System.out.println(("12: Zisti ci to je octa cislo"));
             System.out.println(("13: Prekopiruj kladne cisla z pola do druheho pola"));
+            System.out.println(("14: HRA - hadaj cislo"));
+            System.out.println(("15: Preskusaj sa v nasobilke"));
+
             volba = sc.nextInt();
-        } while (volba < 1 || volba > 13);
+        } while (volba < 1 || volba > 15);
 
         switch (volba) {
             case (1):
@@ -121,6 +124,19 @@ public class Main {
                 for(int i = 0; i < dlzka; i++){
                     System.out.print(" " + novePole[i]);
                 }
+                break;
+            case(14):
+                System.out.println("VYTAJTE V HRE hadania cisla");
+                MyGuess myGuess = new MyGuess();
+                myGuess.guessNumber();
+                break;
+            case(15):
+                MyMultiplier myMultiplier = new MyMultiplier();
+                System.out.println("Preskusaj sa v nasobilke!!!");
+                Scanner nacitaj = new Scanner(System.in);
+                System.out.println("Do akeho maximalneho cisla ta mozem skusat?");
+                int scan = nacitaj.nextInt();
+                myMultiplier.nasobilka(scan);
                 break;
         }
     }

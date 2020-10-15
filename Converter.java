@@ -352,4 +352,6 @@ public class Converter {
         }
         System.out.println("Pocet je: " + pocet);
     }
+
+
 }
