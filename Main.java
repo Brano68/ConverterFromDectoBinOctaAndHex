@@ -31,8 +31,9 @@ public class Main {
             System.out.println(("10: Zisti ci to je hexa cislo"));
             System.out.println(("11: Zisti ci to je binarne cislo"));
             System.out.println(("12: Zisti ci to je octa cislo"));
+            System.out.println(("13: Prekopiruj kladne cisla z pola do druheho pola"));
             volba = sc.nextInt();
-        } while (volba < 1 || volba > 12);
+        } while (volba < 1 || volba > 13);
 
         switch (volba) {
             case (1):
@@ -109,6 +110,16 @@ public class Main {
                     System.out.println("Je to Octa cislo");
                 }else{
                     System.out.println("Nie je to Octa cislo");
+                }
+                break;
+            case(13):
+                int[] pole = new int[]{ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17,
+                        18, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37,
+                        38, 39, 40};
+                int[] novePole = converter.getArray(pole);
+                int dlzka = novePole.length;
+                for(int i = 0; i < dlzka; i++){
+                    System.out.print(" " + novePole[i]);
                 }
                 break;
         }

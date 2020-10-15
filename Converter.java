@@ -229,7 +229,7 @@ public class Converter {
         }
     }
 
-    public static boolean isBinaryNumber(String value){
+    public boolean isBinaryNumber(String value){
         int dlzka = value.length();
         value = value.toLowerCase();
         char znak;
@@ -249,7 +249,7 @@ public class Converter {
         }
     }
 
-    public static boolean isOctalNumber(String value){
+    public boolean isOctalNumber(String value){
         int dlzka = value.length();
         value = value.toLowerCase();
         char znak;
@@ -270,8 +270,28 @@ public class Converter {
         }
     }
 
+    public int[] getArray(int[] inPole){
+    int dlzka = inPole.length;
+    int velkost = 0;
+    for(int i = 0; i < dlzka; i++){
+    if(inPole[i]%2 == 0){
+    velkost++;
+    }
+    }
+    int[] outPole = new int[velkost];
+    int j = 0;
+    for(int i = 0; i < dlzka; i++){
+    if(inPole[i]%2 == 0){
+    outPole[j] = inPole[i];
+    j++;
+    }
+    }
+    return outPole;
+    }
+
+
     ///metody s retazcom
-    public static void countInfinity() {
+    public void countInfinity() {
         Scanner sc = new Scanner(System.in);
         int cislo;
         int sucet = 0;
@@ -298,7 +318,7 @@ public class Converter {
         System.out.println("Sucet cisel je: " + sucet);
     }
 
-    public static void vypisemOdZadu(String retazec) {
+    public void vypisemOdZadu(String retazec) {
         int dlzka = retazec.length();
         String reverz = "";
         for (int i = dlzka - 1; i >= 0; i--) {
@@ -307,7 +327,7 @@ public class Converter {
         System.out.println("Opacny retazec je: " + reverz);
     }
 
-    public static void zistiPocetSamohlasok() {
+    public void zistiPocetSamohlasok() {
         String data = " Procedural programming is about writing procedures or methods that perform operations on the data, while object-oriented programming is about creating objects that contain both data and methods. ";
         int dlzka = data.length();
         char znak;
