@@ -36,9 +36,13 @@ public class Main {
             System.out.println(("15: Preskusaj sa v nasobilke"));
             System.out.println(("16: Daj na zakladny tvar zlomok"));
             System.out.println(("17: Pocet odrazov"));
+            System.out.println(("18: Skracuje retazec"));
+            System.out.println(("19: Vypise cisla delitelne 91"));
+            System.out.println(("20: Urob sucet 1 + 1/2 + 1/3 + ... + 1/100"));
+            System.out.println(("21: KENO 10"));
 
             volba = sc.nextInt();
-        } while (volba < 1 || volba > 17);
+        } while (volba < 1 || volba > 21);
 
         switch (volba) {
             case (1):
@@ -142,11 +146,27 @@ public class Main {
                 break;
             case(16):
                 MyHomework my1Homework = new MyHomework();
-                my1Homework.zakladnyTvar(202,10);
+                my1Homework.zakladnyTvar(110,150);
                 break;
             case(17):
                 MyHomework my2Homework = new MyHomework();
                 System.out.println("Pocet odrazov je: " + my2Homework.pocetOdrazov(200,0.9));
+                break;
+            case(18):
+                MyHomework my3Homework = new MyHomework();
+                my3Homework.skracujRetazecOdPredu("SKOLA");
+                break;
+            case(19):
+                MyHomework my4Homework = new MyHomework();
+                my4Homework.vypisCislaDelitelne();
+                break;
+            case(20):
+                MyHomework my5Homework = new MyHomework();
+                my5Homework.urobSucet();
+                break;
+            case(21):
+                MyHomework my6Homework = new MyHomework();
+                my6Homework.keno();
                 break;
         }
     }
