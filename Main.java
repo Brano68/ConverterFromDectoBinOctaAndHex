@@ -34,9 +34,11 @@ public class Main {
             System.out.println(("13: Prekopiruj kladne cisla z pola do druheho pola"));
             System.out.println(("14: HRA - hadaj cislo"));
             System.out.println(("15: Preskusaj sa v nasobilke"));
+            System.out.println(("16: Daj na zakladny tvar zlomok"));
+            System.out.println(("17: Pocet odrazov"));
 
             volba = sc.nextInt();
-        } while (volba < 1 || volba > 15);
+        } while (volba < 1 || volba > 17);
 
         switch (volba) {
             case (1):
@@ -137,6 +139,14 @@ public class Main {
                 System.out.println("Do akeho maximalneho cisla ta mozem skusat?");
                 int scan = nacitaj.nextInt();
                 myMultiplier.nasobilka(scan);
+                break;
+            case(16):
+                MyHomework my1Homework = new MyHomework();
+                my1Homework.zakladnyTvar(202,10);
+                break;
+            case(17):
+                MyHomework my2Homework = new MyHomework();
+                System.out.println("Pocet odrazov je: " + my2Homework.pocetOdrazov(200,0.9));
                 break;
         }
     }
