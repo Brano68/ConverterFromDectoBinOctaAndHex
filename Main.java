@@ -188,6 +188,7 @@ public class Main {
                 MyHomework my10Homework = new MyHomework();
                 my10Homework.cezarSifra("Ahoj 255");
                 break;
+
         }
     }
 }

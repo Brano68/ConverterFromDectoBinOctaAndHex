@@ -273,7 +273,7 @@ public class MyHomework {
                 cezarText = cezarText + text.charAt(i);
             }
         }
-        System.out.println("Cezerova sifra je: " + cezarText);
+        System.out.println("Cezerova sifra je: " + cezarText + "a povodna je: " + text);
     }
 }
 
