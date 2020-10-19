@@ -182,7 +182,7 @@ public class Main {
                 break;
             case(24):
                 MyHomework my9Homework = new MyHomework();
-                my9Homework.textAnalyser("Ahoj 455? 98 hovnocuc");
+                my9Homework.textAnalyser("Ahoj 455? 98 ako sa mame? 887");
                 break;
             case(25):
                 MyHomework my10Homework = new MyHomework();
