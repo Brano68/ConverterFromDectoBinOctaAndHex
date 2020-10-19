@@ -40,9 +40,13 @@ public class Main {
             System.out.println(("19: Vypise cisla delitelne 91"));
             System.out.println(("20: Urob sucet 1 + 1/2 + 1/3 + ... + 1/100"));
             System.out.println(("21: KENO 10"));
+            System.out.println(("22: ASCII"));
+            System.out.println(("23: Zisti IP adresu"));
+            System.out.println(("24: Text analyzer"));
+            System.out.println(("25: Cezar sifra"));
 
             volba = sc.nextInt();
-        } while (volba < 1 || volba > 21);
+        } while (volba < 1 || volba > 25);
 
         switch (volba) {
             case (1):
@@ -167,6 +171,22 @@ public class Main {
             case(21):
                 MyHomework my6Homework = new MyHomework();
                 my6Homework.keno();
+                break;
+            case(22):
+                MyHomework my7Homework = new MyHomework();
+                my7Homework.vypisZnakov();
+                break;
+            case(23):
+                MyHomework my8Homework = new MyHomework();
+                my8Homework.zistiIP();
+                break;
+            case(24):
+                MyHomework my9Homework = new MyHomework();
+                my9Homework.textAnalyser("Ahoj 455? 98 hovnocuc");
+                break;
+            case(25):
+                MyHomework my10Homework = new MyHomework();
+                my10Homework.cezarSifra("Ahoj 255");
                 break;
         }
     }
